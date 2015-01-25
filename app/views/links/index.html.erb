@@ -15,14 +15,14 @@
     <% @links.each do |link| %>
       <tr>
         <td><%= link.title %></td>
-        <td><%= link.url %></td>
-        <td><%= link_to 'Show', link %></td>
-                
+        <td><%= link.user.try(:email) %></td>
+        <td><%= link_to 'Show', link_path(link) %></td>
+      
         <% if link.user == current_user %>
-          <td><%= link_to 'Edit', edit_link_path(@link) %></td>
-          <td><%= link_to 'Destroy', @link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+         <%= link_to 'Edit', edit_link_path(link) %>
+         <%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>
-
+      
       </tr>
     <% end %>
   </tbody>
