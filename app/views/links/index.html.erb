@@ -17,12 +17,10 @@
         <td><%= link.title %></td>
         <td><%= link.user.try(:email) %></td>
         <td><%= link_to 'Show', link_path(link) %></td>
-      
         <% if link.user == current_user %>
-         <%= link_to 'Edit', edit_link_path(link) %>
-         <%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
-      
+          <td><%= link_to 'Edit', edit_link_path(link) %></td>
+          <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>  
       </tr>
     <% end %>
   </tbody>
